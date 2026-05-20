@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título que aparece na aba do navegador -->
+    <title>Arreiou | Qualidade aos preços mais baixos</title>
+    <!-- Bloco de estilos CSS -->
+    <style>
+        /* Reset global - remove margens e preenchimentos padrão de todos os elementos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Inclui padding e border no cálculo de largura/altura */
+        }
+
+        /* Estilos globais do corpo da página */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografia sem serifa, modular */
+            line-height: 1.6; /* Espaçamento entre linhas para melhor legibilidade */
+            color: #333; /* Cor de texto cinza escuro */
+        }
+
+        /* SEÇÃO HEADER - Topo da página */
+        header {
+            background: #fff; /* Fundo branco */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra sutil */
+            position: sticky; /* Fica fixo ao rolar a página */
+            top: 0; /* Posiciona no topo */
+            z-index: 1000; /* Garante que fica acima de outros elementos */
+        }
+
+        /* Container do header - organiza logo e navegação */
+        .header-container {
+            max-width: 1200px; /* Limita largura máxima */
+            margin: 0 auto; /* Centraliza na página */
+            padding: 15px 20px; /* Espaçamento interno */
+            display: flex; /* Layout flexível */
+            justify-content: space-between; /* Espaço entre logo e menu */
+            align-items: center; /* Alinha verticalmente no centro */
+        }
+
+        /* Estilo do logo */
+        .logo {
+            display: flex; /* Flexível para conteúdo interno */
+            align-items: center; /* Centraliza a imagem verticalmente */
+            text-decoration: none; /* Remove sublinhado de link */
+            height: 50px; /* Altura fixa para manter proporção */
+        }
+
+        /* Imagem do logo - responsiva */
+        .logo img {
+            max-width: 100%; /* Não ultrapassa 100% da largura do container */
+            height: auto; /* Altura automática para manter proporção */
+            max-height: 50px; /* Altura máxima de 50px */
+            object-fit: contain; /* Mantém a proporção original da imagem */
+        }
+
+        /* NAVEGAÇÃO MENU - Lista de links do topo */
+        nav ul {
+            display: flex; /* Layout horizontal dos itens do menu */
+            list-style: none; /* Remove os pontos padrão da lista */
+            gap: 30px; /* Espaço entre cada link do menu */
+        }
+
+        /* Links de navegação */
+        nav a {
+            text-decoration: none; /* Remove sublinhado dos links */
+            color: #333; /* Cor cinza escuro */
+            font-weight: 500; /* Peso de fonte médio */
+            transition: color 0.3s; /* Transição suave de cor em 0.3 segundos */
+        }
+
+        /* Efeito ao passar o mouse nos links de navegação */
+        nav a:hover {
+            color: #e63946; /* Muda para vermelho da marca */
+        }
+
+        /* Botão de menu para telas móveis (hamburger) */
+        .menu-toggle {
+            display: none; /* Escondido por padrão (aparece em mobile) */
+            background: none; /* Sem fundo */
+            border: none; /* Sem borda */
+            font-size: 24px; /* Tamanho do ícone */
+            cursor: pointer; /* Cursor muda para indicar clicabilidade */
+        }
+
+        /* SEÇÃO HERO - Banner principal com imagem e texto */
+        .hero {
+            background: linear-gradient(135deg, #e63946 0%, #f77f00 100%); /* Gradiente de vermelho para laranja */
+            color: white; /* Texto branco */
+            text-align: center; /* Texto centralizado */
+            padding: 80px 20px; /* Espaçamento interno */
+            display: flex; /* Layout flexível */
+            flex-direction: column; /* Elementos empilhados verticalmente */
+            align-items: center; /* Centraliza horizontalmente */
+            justify-content: center; /* Centraliza verticalmente */
+            gap: 40px; /* Espaço entre imagem, título e descrição */
+            max-width: 100%; /* Ocupa toda a largura */
+        }
+
+        /* Imagem da seção hero - responsiva */
+        .hero-image {
+            max-width: 500px; /* Largura máxima de 500px em desktop */
+            width: 90%; /* Utiliza 90% da largura disponível */
+            height: auto; /* Altura automática */
+            max-height: 350px; /* Altura máxima de 350px */
+            object-fit: contain; /* Mantém proporção original */
+            animation: fadeInUp 1s; /* Animação de entrada suave */
+            display: block; /* Garante que é um bloco */
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s;
+            max-width: 600px;
+        }
+
+        .hero p {
+            font-size: 24px;
+            opacity: 0.9; /* Transparência leve para melhor legibilidade */
+            max-width: 600px; /* Largura máxima para melhor leitura */
+        }
+
+        /* SEÇÃO CATEGORIAS - Grade de produtos */
+        .categories {
+            max-width: 1200px; /* Limita largura máxima */
+            margin: 60px auto; /* Margem vertical de 60px, centralizado */
+            padding: 0 20px; /* Padding horizontal para não tocar as bordas */
+        }
+
+        /* Título da seção categorias */
+        .categories h2 {
+            text-align: center; /* Centraliza o texto */
+            font-size: 36px; /* Tamanho grande para destaque */
+            margin-bottom: 40px; /* Espaço abaixo do título */
+            color: #e63946; /* Cor vermelha da marca */
+        }
+
+        /* Grid responsivo das categorias */
+        .category-grid {
+            display: grid; /* Layout em grade */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Cria colunas de mín 200px, expande se houver espaço */
+            gap: 30px; /* Espaço entre os cards */
+            margin-top: 40px; /* Espaço do título para o grid */
+        }
+
+        /* Card individual de categoria */
+        .category-card {
+            background: #fff; /* Fundo branco */
+            padding: 30px; /* Espaçamento interno */
+            border-radius: 15px; /* Cantos arredondados */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Sombra para profundidade */
+            text-align: center; /* Centraliza conteúdo */
+            transition: transform 0.3s, box-shadow 0.3s; /* Transição suave ao hover */
+            cursor: pointer; /* Indica que é clicável */
+        }
+
+        /* Efeito ao passar o mouse no card */
+        .category-card:hover {
+            transform: translateY(-10px); /* Move para cima 10px */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* Sombra mais forte */
+        }
+
+        /* Ícone/Imagem da categoria */
+        .category-icon {
+            font-size: 48px; /* Tamanho de ícone padrão */
+            margin-bottom: 15px; /* Espaço abaixo da imagem */
+            width: 100%; /* Ocupa toda largura */
+            height: auto; /* Altura automática */
+            display: flex; /* Layout flexível */
+            align-items: center; /* Centraliza verticalmente */
+            justify-content: center; /* Centraliza horizontalmente */
+            overflow: hidden; /* Esconde conteúdo que ultrapassa */
+        }
+
+        /* Imagem dentro do ícone da categoria */
+        .category-icon img {
+            max-width: 100%; /* Não ultrapassa a largura */
+            height: auto; /* Altura automática */
+            object-fit: contain; /* Mantém proporção original */
+            display: block; /* Comportamento de bloco */
+        }
+
+        /* Título do card de categoria */
+        .category-card h3 {
+            font-size: 20px; /* Tamanho médio */
+            color: #333; /* Cinza escuro */
+        }
+
+        /* SEÇÃO ESTATÍSTICAS - Dados sobre a empresa */
+        .stats {
+            background: #f8f9fa; /* Fundo cinza claro */
+            padding: 80px 20px; /* Espaçamento generoso */
+            margin: 60px 0; /* Espaço vertical */
+        }
+
+        /* Container das estatísticas */
+        .stats-container {
+            max-width: 1200px; /* Limita largura */
+            margin: 0 auto; /* Centraliza */
+            display: grid; /* Layout em grade */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Colunas de mín 300px */
+            gap: 40px; /* Espaço entre cards */
+        }
+
+        /* Card individual de estatística */
+        .stat-card {
+            background: white; /* Fundo branco */
+            padding: 40px; /* Espaçamento interno */
+            border-radius: 15px; /* Cantos arredondados */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Sombra */
+            text-align: center; /* Centraliza conteúdo */
+        }
+
+        /* Ícone da estatística */
+        .stat-icon {
+            font-size: 64px; /* Tamanho grande para destaque */
+            margin-bottom: 20px; /* Espaço abaixo */
+        }
+
+        /* Título do card de estatística */
+        .stat-card h3 {
+            font-size: 28px; /* Tamanho destacado */
+            color: #e63946; /* Cor vermelha da marca */
+            margin-bottom: 15px; /* Espaço abaixo */
+        }
+
+        /* Parágrafo do card de estatística */
+        .stat-card p {
+            font-size: 16px; /* Tamanho legível */
+            color: #666; /* Cinza médio */
+            line-height: 1.8; /* Espaçamento de linha para legibilidade */
+        }
+
+        /* SEÇÃO FEATURES - Características principais */
+        .features {
+            max-width: 1200px; /* Limita largura */
+            margin: 80px auto; /* Espaço vertical e centraliza */
+            padding: 0 20px; /* Padding horizontal */
+        }
+
+        /* Item individual de feature */
+        .feature-item {
+            display: grid; /* Layout em grade */
+            grid-template-columns: 1fr 1fr; /* Duas colunas iguais */
+            gap: 60px; /* Espaço grande entre coluna de texto e imagem */
+            margin-bottom: 60px; /* Espaço entre features */
+            align-items: center; /* Centraliza verticalmente */
+        }
+
+        /* Alternância de layout - features pares ficam ao contrário */
+        .feature-item:nth-child(even) {
+            direction: rtl; /* Inverte direção */
+        }
+
+        /* Restaura direção normal dos elementos filhos */
+        .feature-item:nth-child(even) > * {
+            direction: ltr; /* Volta à direção normal */
+        }
+
+        /* Título da feature */
+        .feature-content h3 {
+            font-size: 32px; /* Tamanho destacado */
+            color: #e63946; /* Vermelho da marca */
+            margin-bottom: 20px; /* Espaço abaixo */
+        }
+
+        /* Parágrafo da feature */
+        .feature-content p {
+            font-size: 18px; /* Tamanho legível */
+            color: #666; /* Cinza médio */
+            line-height: 1.8; /* Espaçamento para legibilidade */
+        }
+
+        /* Imagem da feature */
+        .feature-image {
+            width: 100%; /* Ocupa toda largura */
+            height: auto; /* Altura automática */
+            min-height: 300px; /* Altura mínima de 300px */
+            background: linear-gradient(135deg, #e63946 0%, #f77f00 100%); /* Gradiente de fundo */
+            border-radius: 15px; /* Cantos arredondados */
+            display: flex; /* Layout flexível */
+            align-items: center; /* Centraliza verticalmente */
+            justify-content: center; /* Centraliza horizontalmente */
+            font-size: 72px; /* Tamanho de ícone grande */
+            color: white; /* Texto branco */
+            object-fit: cover; /* Cobre toda a área */
+        }
+
+        /* Imagem dentro da feature */
+        .feature-image img {
+            max-width: 100%; /* Não ultrapassa largura */
+            height: auto; /* Altura automática */
+            border-radius: 15px; /* Cantos arredondados */
+            display: block; /* Comportamento de bloco */
+        }
+
+        /* SEÇÃO RECEITAS - Promoção de receitas */
+        .recipes {
+            background: #f77f00; /* Fundo laranja da marca */
+            color: white; /* Texto branco */
+            padding: 80px 20px; /* Espaçamento generoso */
+            text-align: center; /* Centraliza conteúdo */
+        }
+
+        /* Título de receitas */
+        .recipes h2 {
+            font-size: 48px; /* Tamanho grande */
+            margin-bottom: 20px; /* Espaço abaixo */
+        }
+
+        /* Parágrafo de receitas */
+        .recipes p {
+            font-size: 20px; /* Tamanho destacado */
+            margin-bottom: 30px; /* Espaço abaixo */
+        }
+
+        /* Botão genérico (Call to Action) */
+        .btn {
+            display: inline-block; /* Pode ter dimensões */
+            padding: 15px 40px; /* Espaçamento interno */
+            background: white; /* Fundo branco */
+            color: #f77f00; /* Texto laranja */
+            text-decoration: none; /* Remove sublinhado */
+            border-radius: 50px; /* Muito arredondado (pílula) */
+            font-weight: bold; /* Texto em negrito */
+            transition: transform 0.3s, box-shadow 0.3s; /* Transição suave */
+        }
+
+        /* Efeito ao passar o mouse no botão */
+        .btn:hover {
+            transform: scale(1.05); /* Aumenta 5% */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* Sombra mais forte */
+        }
+
+        /* FORMULÁRIO DE CONTATO */
+        .contact-form {
+            max-width: 600px; /* Limita largura */
+            margin: 80px auto; /* Espaço vertical e centralizado */
+            padding: 40px; /* Espaçamento interno */
+            background: #fff; /* Fundo branco */
+            border-radius: 15px; /* Cantos arredondados */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Sombra para profundidade */
+        }
+
+        /* SEÇÃO DE HORÁRIO DE FUNCIONAMENTO */
+        .hours-section {
+            max-width: 600px; /* Limita largura */
+            margin: 80px auto; /* Espaço vertical e centralizado */
+            padding: 40px; /* Espaçamento interno */
+            background: #fff; /* Fundo branco */
+            border-radius: 15px; /* Cantos arredondados */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Sombra */
+            text-align: center; /* Centraliza conteúdo */
+        }
+
+        /* Título da seção de horário */
+        .hours-section h2 {
+            text-align: center; /* Centraliza */
+            color: #e63946; /* Vermelho da marca */
+            margin-bottom: 30px; /* Espaço abaixo */
+            font-size: 32px; /* Tamanho destacado */
+        }
+
+        /* Imagem do horário (relógio) */
+        .hours-image {
+            max-width: 100%; /* Não ultrapassa largura */
+            height: auto; /* Altura automática */
+            max-height: 120px; /* Altura máxima */
+            object-fit: contain; /* Mantém proporção */
+            display: block; /* Comportamento de bloco */
+            margin: 0 auto; /* Centraliza */
+        }
+
+        /* Título do formulário de contato */
+        .contact-form h2 {
+            text-align: center; /* Centraliza */
+            color: #e63946; /* Vermelho da marca */
+            margin-bottom: 20px; /* Espaço abaixo */
+            font-size: 32px; /* Tamanho destacado */
+        }
+
+        /* Parágrafo do formulário de contato */
+        .contact-form p {
+            text-align: center; /* Centraliza */
+            color: #666; /* Cinza médio */
+            margin-bottom: 30px; /* Espaço abaixo */
+        }
+
+        /* Grupo de formulário (label + input) */
+        .form-group {
+            margin-bottom: 20px; /* Espaço entre campos */
+        }
+
+        /* Rótulo do campo de formulário */
+        .form-group label {
+            display: block; /* Em nova linha */
+            margin-bottom: 8px; /* Espaço abaixo do rótulo */
+            font-weight: 500; /* Peso médio */
+            color: #333; /* Cinza escuro */
+        }
+
+        /* Inputs e textareas do formulário */
+        .form-group input,
+        .form-group textarea {
+            width: 100%; /* Ocupa toda largura */
+            padding: 12px; /* Espaçamento interno */
+            border: 2px solid #ddd; /* Borda cinza clara */
+            border-radius: 8px; /* Cantos levemente arredondados */
+            font-size: 16px; /* Tamanho legível */
+            transition: border-color 0.3s; /* Transição suave ao focus */
+        }
+
+        /* Efeito ao focar nos campos de entrada */
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none; /* Remove outline padrão */
+            border-color: #e63946; /* Muda borda para vermelho da marca */
+        }
+
+        /* Textarea específico */
+        .form-group textarea {
+            min-height: 120px; /* Altura mínima */
+            resize: vertical; /* Permite resize apenas vertical */
+        }
+
+        /* Botão de submissão do formulário */
+        .submit-btn {
+            width: 100%; /* Ocupa toda largura do formulário */
+            padding: 15px; /* Espaçamento interno */
+            background: #e63946; /* Fundo vermelho da marca */
+            color: white; /* Texto branco */
+            border: none; /* Sem borda */
+            border-radius: 8px; /* Cantos arredondados */
+            font-size: 18px; /* Tamanho destacado */
+            font-weight: bold; /* Negrito */
+            cursor: pointer; /* Cursor de clique */
+            transition: background 0.3s; /* Transição suave */
+        }
+
+        /* Efeito ao passar o mouse no botão submit */
+        .submit-btn:hover {
+            background: #d62839; /* Vermelho mais escuro */
+        }
+
+        /* SEÇÃO MARCAS - Logotipos de marcas parceiras */
+        .brands {
+            background: #f8f9fa; /* Fundo cinza claro */
+            padding: 80px 20px; /* Espaçamento generoso */
+            text-align: center; /* Centraliza conteúdo */
+        }
+
+        /* Título da seção marcas */
+        .brands h2 {
+            font-size: 36px; /* Tamanho destacado */
+            color: #e63946; /* Vermelho da marca */
+            margin-bottom: 20px; /* Espaço abaixo */
+        }
+
+        /* Container dos logotipos de marcas */
+        .brands-logo {
+            margin: 40px 0; /* Espaço vertical */
+            font-size: 64px; /* Tamanho de ícone */
+            display: flex; /* Layout flexível */
+            flex-wrap: wrap; /* Quebra linha se necessário */
+            justify-content: center; /* Centraliza horizontalmente */
+            gap: 20px; /* Espaço entre logos */
+            align-items: center; /* Centraliza verticalmente */
+        }
+
+        /* Imagem dos logotipos de marcas */
+        .brands-logo img {
+            max-width: 100%; /* Não ultrapassa largura */
+            height: auto; /* Altura automática */
+            max-height: 80px; /* Altura máxima */
+            object-fit: contain; /* Mantém proporção */
+        }
+
+        /* FOOTER - Rodapé da página */
+        footer {
+            background: #222; /* Fundo cinza muito escuro */
+            color: white; /* Texto branco */
+            padding: 60px 20px 20px; /* Espaçamento (mais em cima, menos embaixo) */
+        }
+
+        /* Container do footer */
+        .footer-container {
+            max-width: 1200px; /* Limita largura */
+            margin: 0 auto; /* Centraliza */
+            display: grid; /* Layout em grade */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colunas responsivas de mín 250px */
+            gap: 40px; /* Espaço entre colunas */
+            margin-bottom: 40px; /* Espaço abaixo do container */
+        }
+
+        /* Título de seção no footer */
+        .footer-section h3 {
+            color: #e63946; /* Vermelho da marca */
+            margin-bottom: 20px; /* Espaço abaixo */
+            font-size: 20px; /* Tamanho destacado */
+        }
+
+        /* Parágrafos e links do footer */
+        .footer-section p,
+        .footer-section a {
+            color: #ccc; /* Cinza claro */
+            text-decoration: none; /* Remove sublinhado */
+            display: block; /* Em nova linha */
+            margin-bottom: 10px; /* Espaço abaixo */
+            transition: color 0.3s; /* Transição suave de cor */
+        }
+
+        /* Imagem de horário no footer */
+        .footer-hours-image {
+            max-width: 100%; /* Não ultrapassa largura */
+            height: auto; /* Altura automática */
+            max-height: 80px; /* Altura máxima */
+            object-fit: contain; /* Mantém proporção */
+            margin-top: 15px; /* Espaço acima da imagem */
+            display: block; /* Comportamento de bloco */
+        }
+
+        /* Logo do footer */
+        .footer-logo {
+            max-width: 100%; /* Não ultrapassa largura */
+            height: auto; /* Altura automática */
+            max-height: 70px; /* Altura máxima */
+            object-fit: contain; /* Mantém proporção */
+            margin-bottom: 15px; /* Espaço abaixo da logo */
+            display: block; /* Comportamento de bloco */
+        }
+
+        /* Efeito ao passar o mouse em links do footer */
+        .footer-section a:hover {
+            color: #e63946; /* Muda para vermelho da marca */
+        }
+
+        /* Lista de links do footer */
+        .footer-links {
+            list-style: none; /* Remove os pontos da lista */
+        }
+
+        /* Itens da lista de links do footer */
+        .footer-links li {
+            margin-bottom: 10px; /* Espaço entre itens */
+        }
+
+        /* Container dos ícones de redes sociais */
+        .social-links {
+            display: flex; /* Layout horizontal */
+            gap: 15px; /* Espaço entre ícones */
+            margin-top: 20px; /* Espaço acima dos ícones */
+        }
+
+        /* Links de redes sociais (botões circulares) */
+        .social-links a {
+            display: inline-flex; /* Flex para centralizar ícone */
+            width: 40px; /* Tamanho 40x40px */
+            height: 40px;
+            background: #e63946; /* Fundo vermelho da marca */
+            border-radius: 50%; /* Forma circular */
+            align-items: center; /* Centraliza verticalmente */
+            justify-content: center; /* Centraliza horizontalmente */
+            color: white; /* Texto branco */
+            font-size: 20px; /* Tamanho do ícone/texto */
+            transition: transform 0.3s; /* Transição suave */
+        }
+
+        /* Imagens dentro dos links de redes sociais */
+        .social-links img {
+            width: 20px; /* Tamanho 20x20px */
+            height: 20px;
+            object-fit: contain; /* Mantém proporção */
+        }
+
+        /* Efeito ao passar o mouse nos ícones de redes sociais */
+        .social-links a:hover {
+            transform: scale(1.1); /* Aumenta 10% */
+        }
+
+        /* Parte inferior do footer com copyright */
+        .footer-bottom {
+            text-align: center; /* Centraliza */
+            padding-top: 20px; /* Espaço acima */
+            border-top: 1px solid #444; /* Linha divisória */
+            color: #999; /* Cinza médio */
+            font-size: 14px; /* Tamanho pequeno */
+        }
+
+        /* DISCLAIMER - Aviso legal educativo */
+        .disclaimer {
+            background: #fff3cd; /* Fundo amarelo claro (alerta) */
+            color: #856404; /* Texto marrom */
+            padding: 20px; /* Espaçamento interno */
+            text-align: center; /* Centraliza */
+            border-top: 3px solid #ffc107; /* Borda amarela */
+            font-size: 14px; /* Tamanho pequeno */
+            font-style: italic; /* Itálico para ênfase */
+        }
+
+        /* ANIMAÇÕES - Efeitos visuais */
+        @keyframes fadeInUp {
+            /* Começa invisível (opacity 0) e 30px para baixo */
+            from {
+                opacity: 0; /* Transparência total */
+                transform: translateY(30px); /* Posição 30px para baixo */
+            }
+            /* Termina visível (opacity 1) e na posição original */
+            to {
+                opacity: 1; /* Transparência zero (visível) */
+                transform: translateY(0); /* Volta à posição original */
+            }
+        }
+
+        /* RESPONSIVIDADE - Ajustes para telas menores */
+        @media (max-width: 768px) {
+            /* Mostra o botão de menu hamburger em tablets */
+            .menu-toggle {
+                display: block; /* Ativa o botão do menu móvel */
+            }
+
+            /* Menu de navegação em mobile */
+            nav ul {
+                display: none; /* Escondido por padrão */
+                position: absolute; /* Posicionamento absoluto */
+                top: 70px; /* Logo abaixo do header */
+                left: 0;
+                right: 0;
+                background: white; /* Fundo branco */
+                flex-direction: column; /* Itens em coluna */
+                padding: 20px; /* Espaçamento interno */
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1); /* Sombra */
+            }
+
+            /* Menu ativo (quando clicado) */
+            nav ul.active {
+                display: flex; /* Exibe o menu */
+            }
+
+            /* Hero section em tablet */
+            .hero {
+                padding: 60px 20px; /* Reduz padding */
+                gap: 30px; /* Espaço reduzido entre elementos */
+            }
+
+            /* Imagem hero em tablet */
+            .hero-image {
+                max-width: 350px; /* Reduz largura máxima */
+                max-height: 280px; /* Reduz altura máxima */
+            }
+
+            /* Título hero em tablet */
+            .hero h1 {
+                font-size: 32px; /* Reduz tamanho */
+            }
+
+            /* Parágrafo hero em tablet */
+            .hero p {
+                font-size: 18px; /* Reduz tamanho */
+            }
+
+            /* Grid de categorias em tablet */
+            .category-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Reduz tamanho mínimo
+                gap: 20px;
+            }
+
+            .category-icon {
+                min-height: 150px;
+            }
+
+            .feature-item {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .feature-item:nth-child(even) {
+                direction: ltr;
+            }
+
+            .feature-image {
+                min-height: 250px;
+                font-size: 48px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .brands-logo {
+                gap: 15px;
+            }
+
+            .brands-logo img {
+                max-height: 60px;
+            }
+
+            .hours-section {
+                margin: 60px 20px;
+                padding: 30px 20px;
+            }
+
+            .hours-image {
+                max-height: 100px;
+            }
+
+            .footer-hours-image {
+                max-height: 70px;
+            }
+
+            .footer-logo {
+                max-height: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 40px 20px;
+                gap: 15px;
+            }
+
+            .hero-image {
+                max-width: 250px;
+                max-height: 180px;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 15px;
+            }
+
+            .category-icon {
+                min-height: 120px;
+            }
+
+            .feature-image {
+                min-height: 200px;
+                font-size: 36px;
+            }
+
+            .brands-logo img {
+                max-height: 50px;
+            }
+
+            .hours-section {
+                margin: 40px 20px;
+                padding: 20px;
+            }
+
+            .hours-section h2 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .hours-image {
+                max-height: 80px;
+            }
+
+            .footer-hours-image {
+                max-height: 60px;
+            }
+
+            .footer-logo {
+                max-height: 50px;
+            }
+        }
+    </style>
+</head>
+<!-- Corpo do documento HTML -->
+<body>
+    <!-- HEADER - Cabeçalho da página com logo e navegação -->
+    <header>
+        <!-- Container do header que organiza logo, menu e botão mobile -->
+        <div class="header-container">
+            <!-- Logo clicável que leva ao topo da página -->
+            <a href="#" class="logo">
+                <!-- Imagem do logotipo da Arreiou (responsiva) -->
+                <img src="https://static.wixstatic.com/media/33acf7_0f9227c76d6f46e49b925e9d96f6d33c~mv2.png/v1/fill/w_236,h_70,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/assets4Asset%201_288x-8.png" alt="Arreiou Logo">
+            </a>
+            <!-- Botão de menu hamburger para mobile (ativa/desativa menu ao clicar) -->
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <!-- Navegação principal da página -->
+            <nav>
+                <!-- Lista de links de navegação com IDs para scroll suave -->
+                <ul id="menu">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#quem-somos">Quem Somos</a></li>
+                    <li><a href="#marcas">Nossas Marcas</a></li>
+                    <li><a href="#receitas">Receitas</a></li>
+                    <li><a href="#recrutamento">Recrutamento</a></li>
+                    <li><a href="#contato">Como trabalhamos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION - Banner principal com imagem e chamada principal -->
+    <section class="hero" id="inicio">
+        <!-- Imagem principal que aparece acima do texto -->
+        <img src="https://static.wixstatic.com/media/33acf7_e2a565be0dc649f888381f5d6a7b4180~mv2.png/v1/fill/w_538,h_335,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/33acf7_e2a565be0dc649f888381f5d6a7b4180~mv2.png" alt="Arreiou Produtos" class="hero-image">
+        <!-- Título principal da página -->
+        <h1>Tudo para si ao melhor preço!</h1>
+        <!-- Subtítulo que complementa a proposta de valor -->
+        <p>Qualidade aos preços mais baixos, todos os dias!</p>
+    </section>
+
+    <!-- CATEGORIES SECTION - Grade de categorias de produtos -->
+    <section class="categories">
+        <h2>Nossas Categorias</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <div class="category-icon">
+                    <img src="https://static.wixstatic.com/media/33acf7_34a1add8d6734d869d0db6d831d264ff~mv2.png/v1/fill/w_275,h_275,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/p%C3%A3o_arreiou-06.png" alt="Bebidas">
+                </div>
+                <h3>Bebidas</h3>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <img src="https://static.wixstatic.com/media/33acf7_15d25f4ed19f44a793ec0abd39061166~mv2.png/v1/fill/w_275,h_275,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/p%C3%A3o_arreiou-02.png" alt="Cesta Básica">
+                </div>
+                <h3>Cesta Básica</h3>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <img src="https://static.wixstatic.com/media/6af5c8_e5f40b003cea4746a4b80ace2bf30e02~mv2.png/v1/fill/w_275,h_275,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/p%C3%A3o_arreiou-03.png" alt="Lacticínios">
+                </div>
+                <h3>Lacticínios</h3>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <img src="https://static.wixstatic.com/media/33acf7_8d69ace8e22142f4ad85509a5c9da035~mv2.png/v1/fill/w_275,h_275,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/produtos-cesta-basica-site-01.png" alt="Padaria & Pastelaria">
+                </div>
+                <h3>Padaria & Pastelaria</h3>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <img src="https://static.wixstatic.com/media/33acf7_8cd57e92a003453db8d1aacd43132ef4~mv2.png/v1/fill/w_275,h_275,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/produtos-cesta-basica-site-04.png" alt="Congelados & Refrigerados">
+                </div>
+                <h3>Congelados & Refrigerados</h3>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <img src="https://static.wixstatic.com/media/33acf7_34f9a470fe5f48b5b7fbc62eedfeb4e0~mv2.png/v1/fill/w_275,h_275,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/produtos-cesta-basica-site-05.png" alt="Higiene e Limpeza">
+                </div>
+                <h3>Higiene e Limpeza</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats" id="quem-somos">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <h3>+ 4000 Colaboradores</h3>
+                <p>O nosso compromisso é criar oportunidades, especialmente para jovens recém-formados e pessoas à procura do primeiro emprego, contribuindo para a redução do desemprego e promover o desenvolvimento e a inclusão social.</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <img src="https://static.wixstatic.com/media/33acf7_c0442dd3732e4a3dae40663dd373ce5c~mv2.jpeg/v1/fill/w_430,h_240,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Multim%C3%A9dia%20(17).jpeg" alt="Proximidade e qualidade">
+                </div>
+                <h3>Proximidade e qualidade</h3>
+                <p>A cada nova loja inaugurada, contribuímos para o desenvolvimento local e facilitamos o acesso a produtos de qualidade ao preço mais baixo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature-item">
+            <div class="feature-content">
+                <div class="feature-icon">
+                    <img src="https://static.wixstatic.com/media/33acf7_181f3664fbe843dea5e3f76ff553478c~mv2.png/v1/crop/x_0,y_3,w_426,h_548/fill/w_53,h_69,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/mscote-zungueira_216x-8.png" alt="Recrutamento e Formação">
+                </div>
+                <h3>Academia de Formação</h3>
+                <h4>Aposta na formação de talentos, na Academia Arreiou</h4>
+                <p>A formação de talentos é uma estratégia essencial para a sustentabilidade e inovação das organizações. A Academia Arreiou surge como um ambiente formativo que vai além da simples capacitação, preparando profissionais de forma abrangente e alinhada às necessidades do mercado actual.</p>
+            </div>
+            <div class="feature-image">🎓</div>
+        </div>
+
+        <div class="feature-item">
+            <div class="feature-content">
+                <h3>Eficiência e Agilidade</h3>
+                <h4>4 Centros Logísticos</h4>
+                <p>Para garantir uma operação eficiente e um fluxo ininterrupto de produtos às lojas, consolidamos a nossa estrutura logística em 4 centros logísticos estratégicos.</p>
+            </div>
+            <div class="feature-image">
+                <img src="https://static.wixstatic.com/media/33acf7_29144e05e5814858abce88d65e641f70~mv2.png/v1/fill/w_543,h_474,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/img-centro-logistico.png" alt="Centros Logísticos">
+            </div>
+        </div>
+    </section>
+
+    <!-- Recipes Section -->
+    <section class="recipes" id="receitas">
+        <h2>Receitas da Zungueira</h2>
+        <p>Descubra receitas deliciosas e tradicionais</p>
+        <a href="#" class="btn">Veja aqui</a>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form" id="contato">
+        <h2>Formulário de sugestão</h2>
+        <p>A sua opinião é muito importante para nós - queremos estar ainda mais próximos de si!</p>
+        <form onsubmit="handleSubmit(event)">
+            <div class="form-group">
+                <label for="nome">Nome (Obrigatório)</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="sugestao">Sugestão (Obrigatório)</label>
+                <textarea id="sugestao" name="sugestao" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Enviar</button>
+        </form>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="brands" id="marcas">
+        <h2>NOSSAS MARCAS</h2>
+        <div class="brands-logo">🏷️</div>
+        <a href="#" class="btn">Veja aqui</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <img src="https://static.wixstatic.com/media/33acf7_0f9227c76d6f46e49b925e9d96f6d33c~mv2.png/v1/fill/w_236,h_70,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/assets4Asset%201_288x-8.png" alt="Arreiou Logo" class="footer-logo">
+                <p>Qualidade aos preços mais baixos</p>
+                <div class="social-links">
+                    <a href="#" title="Facebook"><img src="https://static.wixstatic.com/media/11062b_f4e3e7f537ff4762a1914aa14e3e36b9~mv2.png/v1/fill/w_14,h_14,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_f4e3e7f537ff4762a1914aa14e3e36b9~mv2.png" alt="Facebook"></a>
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="LinkedIn">in</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Horário</h3>
+                <p>08:00h - 21:00h</p>
+                <img src="https://static.wixstatic.com/media/33acf7_256f05d299184d5a9d6c4c1780afbb28~mv2.png/v1/fill/w_218,h_81,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Asset%207_216x-8.png" alt="Horário" class="footer-hours-image">
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <a href="mailto:geral@arreiou.com">geral@arreiou.com</a>
+                <a href="tel:+244923309054">+244 923 309 054</a>
+            </div>
+            <div class="footer-section">
+                <h3>Morada</h3>
+                <p>Superhello, Lda<br>
+                Rua D. Moisés Alves de Pinho<br>
+                Bairro Palanca<br>
+                Kilamba Kiaxi - Luanda</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#quem-somos">Quem Somos</a></li>
+                    <li><a href="#marcas">Nossas Marcas</a></li>
+                    <li><a href="#receitas">Receitas</a></li>
+                    <li><a href="#recrutamento">Recrutamento</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Arreiou. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Disclaimer -->
+    <div class="disclaimer">
+        <strong>APENAS PARA FINS EDUCATIVOS</strong> - Este site é uma réplica criada exclusivamente para um trabalho académico de defesa final de curso. Não representa o site oficial da Arreiou e não deve ser usado para fins comerciais. Todos os direitos da marca Arreiou pertencem aos seus respectivos proprietários.
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Obrigado pela sua sugestão! (Esta é apenas uma demonstração educativa)');
+            event.target.reset();
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Close menu on link click (mobile)
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('menu').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
